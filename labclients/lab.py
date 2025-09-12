@@ -1,7 +1,7 @@
 
 def clients(data):
     def check(data):
-        if type(data['sum']) != int:
+        if  not isinstance(data['sum'], (int, float)):
             return False
         return True
 
@@ -28,13 +28,15 @@ def clients(data):
         if check(data[i]):
             print([data[i]['name'], dealsum(data[i]), clientstatus(data[i])])
             #print(data[i]['name'], '---', dealsum(data[i]), '---', clientstatus(data[i]))
+        else:
+            print('Фальшиві Данні')
 
 
 
 clientslist = {
     'client1' : {'name': 'Andrew', 'sum': 10, 'status': 'clean'},
-    'client2' : {'name': 'Who', 'sum': 250, 'status': 'suspicious'},
-    'client3' : {'name': 'Mark', 'sum' : 2, 'status': 'fraud'}
+    'client2' : {'name': 'Who', 'sum': 250.0, 'status': 'suspicious'},
+    'client3' : {'name': 'Mark', 'sum' : 2000, 'status': 'fraud'}
 }
 
 clients(clientslist)
