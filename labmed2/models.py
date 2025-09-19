@@ -21,6 +21,9 @@ class Medicine(ABC):
         pass
     def total_price(self) -> float:
         return self.quantity * self.price
+    @abstractmethod
+    def info(self) -> str:
+        pass
 
 class Antibiotic(Medicine):
     def requires_prescription(self) -> bool:
